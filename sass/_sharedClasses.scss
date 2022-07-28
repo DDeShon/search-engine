@@ -11,3 +11,11 @@
     color: $logo-green;
 }
 
+.exclaim {
+    display: inline-block;
+    font-size: 1.5rem;
+    transform: rotate(15deg);
+    @include mq(768px) {
+        font-size: 5rem;
+    }
+}
