@@ -1,5 +1,6 @@
-import { setSearchFocus } from "./searchBar.js";
+import { showClearTextButton, setSearchFocus } from "./searchBar.js";
 import {
+  deleteSearchResults,
   buildSearchResults,
   clearStatsLine,
   setStatsLine,
@@ -16,8 +17,13 @@ const initApp = () => {
   // set the focus on the text input
   setSearchFocus();
 
-  // TODO:  3 listeners for clear text button
+  // TODO:  2 listeners for clear text button
 
+  // show delete text button when input is detected
+  const search = document.getElementById("search");
+  search.addEventListener("input", showClearTextButton);
+
+  // submit search terms
   const form = document.getElementById("searchBar");
   form.addEventListener("submit", submitTheSearch);
 };
@@ -25,7 +31,9 @@ const initApp = () => {
 // Procedural "workflow" function
 const submitTheSearch = (event) => {
   event.preventDefault();
-  // TODO:  delete the search results
+
+  // delete the search results
+  deleteSearchResults();
 
   // process the search
   processTheSearch();
@@ -35,7 +43,9 @@ const submitTheSearch = (event) => {
 };
 
 const processTheSearch = async () => {
+  // clear the stats line
   clearStatsLine();
+
   const searchTerm = getSearchTerm();
   if (searchTerm === "") return;
   const resultArray = await retrieveSearchResults(searchTerm);
