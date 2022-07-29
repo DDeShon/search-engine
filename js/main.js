@@ -1,5 +1,9 @@
 import { setSearchFocus } from "./searchBar.js";
-import { buildSearchResults } from "./searchResults.js";
+import {
+  buildSearchResults,
+  clearStatsLine,
+  setStatsLine,
+} from "./searchResults.js";
 import { getSearchTerm, retrieveSearchResults } from "./dataFunctions.js";
 
 document.addEventListener("readystatechange", (event) => {
@@ -22,17 +26,19 @@ const initApp = () => {
 const submitTheSearch = (event) => {
   event.preventDefault();
   // TODO:  delete the search results
+
   // process the search
   processTheSearch();
+
   // set the focus
   setSearchFocus();
 };
 
 const processTheSearch = async () => {
-  // TODO:  clear the stats line
+  clearStatsLine();
   const searchTerm = getSearchTerm();
   if (searchTerm === "") return;
   const resultArray = await retrieveSearchResults(searchTerm);
   if (resultArray.length) buildSearchResults(resultArray);
-  // TODO:  set stats line function
+  setStatsLine(resultArray.length);
 };
