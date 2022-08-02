@@ -13,3 +13,9 @@ export const showClearTextButton = () => {
     clear.classList.remove("flex");
   }
 };
+
+export const clearSearchText = (event) => {
+  event.preventDefault();
+  document.getElementById("search") = "";
+
+}
