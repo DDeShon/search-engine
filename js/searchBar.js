@@ -16,7 +16,7 @@ export const showClearTextButton = () => {
 
 export const clearSearchText = (event) => {
   event.preventDefault();
-  document.getElementById("search") = "";
+  document.getElementById("search").value = " ";
   const clear = document.getElementById("clear");
   clear.classList.add("none");
   clear.classList.remove("flex");
@@ -27,5 +27,5 @@ export const clearPushListener = (event) => {
   if (event.key === "Enter" || event.key === " ") {
     event.preventDefault();
     document.getElementById("clear").click();
-  };
+  }
 };

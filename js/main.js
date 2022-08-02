@@ -1,4 +1,9 @@
-import { showClearTextButton, setSearchFocus } from "./searchBar.js";
+import {
+  clearSearchText,
+  clearPushListener,
+  showClearTextButton,
+  setSearchFocus,
+} from "./searchBar.js";
 import {
   deleteSearchResults,
   buildSearchResults,
@@ -19,6 +24,12 @@ const initApp = () => {
 
   // TODO:  2 listeners for clear text button
 
+  // clear text in search field when the clear button is clicked
+  const clear = document.getElementById("clear");
+  clear.addEventListener("click", clearSearchText);
+  // clearSearchText();
+
+  // clearPushListener();
   // show delete text button when input is detected
   const search = document.getElementById("search");
   search.addEventListener("input", showClearTextButton);
