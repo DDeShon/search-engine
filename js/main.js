@@ -22,14 +22,12 @@ const initApp = () => {
   // set the focus on the text input
   setSearchFocus();
 
-  // TODO:  2 listeners for clear text button
-
   // clear text in search field when the clear button is clicked
+  // or the enter or space keys are pressed while the clear button is in focus
   const clear = document.getElementById("clear");
   clear.addEventListener("click", clearSearchText);
-  // clearSearchText();
+  clear.addEventListener("keydown", clearPushListener);
 
-  // clearPushListener();
   // show delete text button when input is detected
   const search = document.getElementById("search");
   search.addEventListener("input", showClearTextButton);
