@@ -63,10 +63,10 @@ export const clearStatsLine = () => {
 };
 
 export const setStatsLine = (numberOfResults) => {
-  const statsLine = document.getElementById("stats");
+  const statLine = document.getElementById("stats");
   if (numberOfResults) {
-    statsLine.textContent = `Displaying ${numberOfResults} results.`;
+    statLine.textContent = `Displaying ${numberOfResults} results.`;
   } else {
-    statsLine.textContent = "Sorry, no results.";
+    statLine.textContent = "Sorry, no results.";
   }
 };
